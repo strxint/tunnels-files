@@ -44,7 +44,7 @@ Try them, ex:
   # Try shell config for bash, others are: .shrc, .zshrc
   # note: .profile is required for .shrc
 
-  source /home/user/.bashrc # asume bash is installed
+  source /path/to/your/.bashrc # asume bash is installed
 
   # Try launching my polybar config(if you use it)
 
