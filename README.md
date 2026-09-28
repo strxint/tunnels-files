@@ -1,13 +1,13 @@
-# ***Anon-Config v1.0.0***
+# ***Tunnels-files v2.0.0***
 
-**-> My Personal config files for: zsh, sh, bash and polybar <-**
+**-> Builtin TunnelsOS official configuration files, stuff like: terminal, status bars or shells. <-**
 
 
 ## ***Features***
 
-- Big amount of useful alias.
-- Simple prompt POSIX for sh.
-- Nerd Fonts required for polybar.
+- Support terminals: alacritty.
+- Support shells: zsh, bash, sh.
+- Support status bar: polybar.
 
 ## ***Authors***
 
@@ -16,26 +16,26 @@
 
 ## ***Extra***
 
-- Check my anon scripts here: https://github.com/strxint/anon-scripts
+- Check the tunnels builtin scripts here: https://github.com/strxint/tunnels-scripts
 
 ## ***Installation***
 
 Clone repo
 
 ```bash
-  git clone https://github.com/strxint/anon-config
+  git clone https://github.com/strxint/tunnels-files
 ```
 
 Get inside folder
 
 ```bash
-  cd anon-config
+  cd tunnels-files
 ```
 
 Move everything to your personal config path, ex:
 
 ```bash
-  mv config.ini .* /home/user  
+  mv config.ini .* /path/to/your/custom/dir  
 ```
 
 Try them, ex:
@@ -44,11 +44,11 @@ Try them, ex:
   # Try shell config for bash, others are: .shrc, .zshrc
   # note: .profile is required for .shrc
 
-  source /home/user/.bashrc
+  source /home/user/.bashrc # asume bash is installed
 
   # Try launching my polybar config(if you use it)
 
-  pkill polybar && polybar -c /home/user/config.ini
+  pkill polybar && polybar -c /path/to/your/config.ini
 ```
 
 ## ***License***
