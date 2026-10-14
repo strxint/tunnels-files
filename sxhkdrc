@@ -1,0 +1,12 @@
+super + Return
+   alacritty --config-file ~/.config/alacritty/alacritty.toml
+super + d
+   rofi -show drun -show-icons
+super + b
+   alacritty --command links -socks-proxy 127.0.0.1:9150 -http.fake-user-agent 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36' -html-display-images 1 https://lite.duckduckgo.com
+super + q
+   bspc node -c
+super + r
+   bspc wm -r
+super + Escape
+   bspc quit

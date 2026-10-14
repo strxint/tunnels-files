@@ -1,0 +1,61 @@
+table ip6 filter {
+        chain INPUT {
+                type filter hook input priority filter; policy drop;
+                meta l4proto ipv6-icmp icmpv6 type echo-request counter packets 0 bytes 0 drop
+        }
+
+        chain FORWARD {
+                type filter hook forward priority filter; policy drop;
+        }
+
+        chain OUTPUT {
+                type filter hook output priority filter; policy drop;
+        }
+}
+table ip filter {
+        chain INPUT {
+                type filter hook input priority filter; policy drop;
+                iifname "lo" counter packets 0 bytes 0 accept
+                ct state related,established counter packets 0 bytes 0 accept
+                iifname "lo" ip protocol icmp icmp type echo-request ct state related,established counter packets 0 bytes 0 accept
+                ip protocol icmp icmp type echo-request counter packets 0 bytes 0 drop
+        }
+
+        chain OUTPUT {
+                type filter hook output priority filter; policy drop;
+                oifname "lo" counter packets 0 bytes 0 accept
+                ct state new,related,established counter packets 0 bytes 0 accept
+                oifname "lo" ip protocol icmp icmp type echo-request ct state new,related,established counter packets 0 bytes 0 accept
+                ip protocol icmp icmp type echo-request counter packets 0 bytes 0 drop
+                skuid tor counter packets 0 bytes 0 accept
+                ip daddr 127.0.0.1 udp dport 5353 counter packets 0 bytes 0 accept
+                ip daddr 127.0.0.1 tcp dport 6969 counter packets 0 bytes 0 accept
+                ip daddr 127.0.0.1 tcp dport 9150 counter packets 0 bytes 0 accept
+                ip daddr 127.0.0.1 tcp dport 8181 counter packets 0 bytes 0 accept
+		        ip daddr 127.0.0.1 tcp dport 4444 counter packets 0 bytes 0 accept
+		        ip daddr 127.0.0.1 tcp dport 4447 counter packets 0 bytes 0 accept
+                counter packets 0 bytes 0 reject
+        }
+
+        chain FORWARD {
+                type filter hook forward priority filter; policy drop;
+        }
+}
+table ip nat {
+        chain OUTPUT {
+                type nat hook output priority dstnat; policy accept;
+                ip daddr 127.0.0.1 udp dport 53 counter packets 0 bytes 0 redirect to :5353
+                ip daddr 127.0.0.1 tcp dport 53 counter packets 0 bytes 0 redirect to :5353
+                skuid tor counter packets 0 bytes 0 return
+                ip daddr 127.0.0.0/8 counter packets 0 bytes 0 return
+                ip daddr 192.168.0.0/16 counter packets 0 bytes 0 return
+                ip daddr 10.0.0.0/8 counter packets 0 bytes 0 return
+                ip daddr 172.16.0.0/12 counter packets 100 bytes 100 return
+                ip daddr 169.254.0.0/16 counter packets 0 bytes 0 return
+                ip daddr 255.255.255.255 counter packets 0 bytes 0 return
+                ip daddr 224.0.0.0/4 counter packets 0 bytes 0 return
+		        udp dport 53 counter packets 0 bytes 0 redirect to :5353
+                tcp dport 53 counter packets 0 bytes 0 redirect to :5353
+                tcp flags & (fin | syn | rst | ack) == syn counter packets 0 bytes 0 redirect to :6969
+                }
+}
