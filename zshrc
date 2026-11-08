@@ -3,7 +3,7 @@ source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 export EDITOR=nvim
-export PATH=$PATH:$HOME/.hiden/bin
+export PATH=$PATH:/usr/local/bin
 
 alias doit="touch -f"
 alias grep="grep --color=auto"
