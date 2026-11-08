@@ -1,4 +1,4 @@
-PS1="%{%F{33}%}%1j%{%F{7}%}:%{%F{7}%}%n%{%F{69}%}@%{%F{48}%}%m %{%F{63}%}%1~ %{%F{50}%}>> %{%F{7}%}"
+PS1="%{%F{33}%}%?%{%F{7}%}:%{%F{7}%}%n%{%F{69}%}@%{%F{48}%}%m %{%F{63}%}%1~ %{%F{50}%}>> %{%F{7}%}"
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
