@@ -1,22 +1,17 @@
 # ***Tunnels-files v2.0.0***
 
-**-> Builtin TunnelsOS official configuration files, stuff like: terminal, status bars or shells. <-**
+**-> Built-in TunnelsOS(coming soon) official configuration files, for stuff like: terminal, status bars or shells. <-**
 
 
 ## ***Features***
 
 - Support terminals: alacritty.
-- Support shells: zsh, bash, sh.
+- Support shells: zsh.
 - Support status bar: polybar.
 
 ## ***Authors***
 
 - [@strxint](https://www.github.com/strxint) (archnon@protonmail.com)
-
-
-## ***Extra***
-
-- Check the tunnels builtin scripts here: https://github.com/strxint/tunnels-scripts
 
 ## ***Installation***
 
@@ -26,7 +21,7 @@ Clone repo
   git clone https://github.com/strxint/tunnels-files
 ```
 
-Get inside folder
+Get inside the main folder
 
 ```bash
   cd tunnels-files
@@ -35,20 +30,19 @@ Get inside folder
 Move everything to your personal config path, ex:
 
 ```bash
-  mv config.ini .* /path/to/your/custom/dir  
+  mv * /path/to/dir
 ```
 
 Try them, ex:
 
 ```bash
-  # Try shell config for bash, others are: .shrc, .zshrc
-  # note: .profile is required for .shrc
+  # Try shell config for zsh:
 
-  source /path/to/your/.bashrc # asume bash is installed
+  source /path/to/zshrc # asume zsh installed.
 
   # Try launching my polybar config(if you use it)
 
-  pkill polybar && polybar -c /path/to/your/config.ini
+  pkill polybar && polybar -c /path/to/config.ini
 ```
 
 ## ***License***
